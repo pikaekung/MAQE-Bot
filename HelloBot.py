@@ -1,4 +1,4 @@
-
+import sys
 DIRECTION = 'NESW'
 
 _currentPositionX = 0
@@ -6,7 +6,13 @@ _currentPositionY = 0
 _currentFacing = 0
 _step = ''
 
-input = "W55555RW555555W444444W1"
+input = ''
+try:
+    input = sys.argv[1]
+except IndexError:
+    print("Please set input.")
+    sys.exit(0)
+
 def walk():
     global _step, _currentPositionX, _currentPositionY, _currentFacing
     if _step == '':
